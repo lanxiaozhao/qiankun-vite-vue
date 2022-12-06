@@ -1,0 +1,65 @@
+{
+  "id": "3735165",
+  "name": "router",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "761390",
+      "name": "无限制版",
+      "font_class": "cancelManage",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "6337458",
+      "name": "取消链接",
+      "font_class": "disconnect",
+      "unicode": "ec80",
+      "unicode_decimal": 60544
+    },
+    {
+      "icon_id": "201638",
+      "name": "编辑",
+      "font_class": "edit",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "629356",
+      "name": "刷新",
+      "font_class": "refresh",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "162767",
+      "name": "查看2",
+      "font_class": "view",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "5388071",
+      "name": "眼睛_隐藏_o",
+      "font_class": "hide",
+      "unicode": "ebcd",
+      "unicode_decimal": 60365
+    },
+    {
+      "icon_id": "1160137",
+      "name": "exit",
+      "font_class": "exit",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "14151221",
+      "name": "主机状态",
+      "font_class": "overview",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    }
+  ]
+}

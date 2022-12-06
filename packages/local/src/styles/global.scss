@@ -1,0 +1,120 @@
+.layout-title {
+  font-size: 24px;
+  font-weight: 500;
+  padding: 0 12px;
+  color: #171717;
+  height: 52px;
+  line-height: 52px;
+}
+.layout-container {
+  margin: 4px;
+  padding: 10px;
+  background-color: #fff;
+  box-sizing: border-box;
+  &.not-overview {
+    height: calc(100vh - 56px - 52px - 28px); // 保证内容高度
+    padding: 0;
+    margin: 0px 12px 12px;
+  }
+  // el-tabs
+  .el-tabs__header {
+    margin: 0;
+  }
+  .el-tabs--top .el-tabs__item.is-top:nth-child(2) {
+    padding-left: 20px;
+  }
+  .el-tabs__item {
+    font-size: 16px;
+  }
+  .el-tabs__content {
+    overflow-y: auto;
+    height: calc(100vh - 56px - 52px - 28px - 54px); // 保证tab content的高度
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 7px;
+      background: #9c9c9caf;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
+  // el-pagination
+  .el-pagination {
+    justify-content: flex-end;
+    padding-right: 0;
+    padding-top: 16px;
+  }
+}
+// tab-content 中有表格
+.hasTable {
+  box-sizing: border-box;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px - 52px - 28px - 54px); // 与tabcontent高度一致不出现滚动条
+  .table {
+    flex: 1; // 保证表格的高度按照父元素的高度剩余自适应
+  }
+}
+// el-dialog
+.el-dialog__header {
+  border-bottom: var(--el-border) !important;
+  margin-right: 0 !important;
+  background-color: var(--el-color-primary) !important;
+}
+.el-dialog__title {
+  color: #fff !important;
+}
+.el-dialog__headerbtn:focus .el-dialog__close,
+.el-dialog__headerbtn:hover .el-dialog__close {
+  color: #fff !important;
+  font-weight: 800 !important;
+}
+.el-dialog__headerbtn .el-dialog__close {
+  color: #fff !important;
+  &:hover {
+    color: #fff !important;
+    font-weight: 800 !important;
+  }
+}
+.el-dialog__footer {
+  border-top: var(--el-border) !important;
+}
+// el-select
+.el-select {
+  width: 100%;
+}
+// 内容很多的dialog
+.long-dialog {
+  margin-top: 50px !important;
+  .el-dialog__body {
+    max-height: calc(100vh - 220px);
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 7px;
+      background: #9c9c9caf;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
+}
+
+// el-form-item中的删除按钮
+.btn-del {
+  margin-left: 15px;
+}
+// span 文字不换行
+span {
+  white-space: nowrap;
+}
+
+// el-form-item
+.el-form-item {
+  margin-bottom: 12px !important;
+}
