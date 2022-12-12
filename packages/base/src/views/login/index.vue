@@ -3,7 +3,7 @@ import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 // import { getLogin } from '@/http/login'
 import type { FormInstance, FormRules } from 'element-plus'
-import LangSelect from '@/components/langSelect.vue'
+import LangSelect from '@/layout/component/langSelect.vue'
 // import { cookie } from '@/utils/http'
 
 const form = reactive({

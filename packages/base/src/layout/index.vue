@@ -23,8 +23,8 @@ onMounted(() => {
   height: 100vh;
   width: 100vw;
   .content-wrapper {
-    height: calc(100vh - 56px);
-    background-color: rgb(245 245 245);
+    height: calc(100vh - 64px);
+    background-color: #f5f5f5;
     overflow: auto;
   }
 }

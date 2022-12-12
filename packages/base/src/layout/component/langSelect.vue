@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { getLang, setLang } from '@/locales/i18n'
-import startQiankun from '../utils/microAppsConfig/index'
+import startQiankun from '../../utils/microAppsConfig/index'
 const lang = ref(getLang.value)
 const selectChange = (val: string) => {
   setLang(val)
