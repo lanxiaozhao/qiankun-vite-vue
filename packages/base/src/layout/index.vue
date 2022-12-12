@@ -1,37 +1,31 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import Header from './component/header.vue'
-import Menu from './component/menu.vue'
+import startQiankun from '@/utils/microAppsConfig/index'
+import { apps } from '@/utils/microAppsConfig/microApps'
+
+onMounted(() => {
+  startQiankun(apps)
+})
 </script>
 
 <template>
   <div class="layout">
-    <Menu />
-    <div class="container-wrapper">
-      <Header />
-      <div class="content">
-        <div class="content-wrapper"><router-view></router-view></div>
-      </div>
+    <Header />
+    <div class="content-wrapper">
+      <div id="subapp-viewport"></div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .layout {
-  display: flex;
   height: 100vh;
   width: 100vw;
-  .container-wrapper {
-    height: 100vh;
-    overflow-y: hidden;
-    .content {
-      background-color: rgb(245 245 245);
-      height: calc(100vh - 56px);
-      width: calc(100vw - 256px);
-      overflow: auto;
-      &-wrapper {
-        min-width: 1180px;
-      }
-    }
+  .content-wrapper {
+    height: calc(100vh - 56px);
+    background-color: rgb(245 245 245);
+    overflow: auto;
   }
 }
 </style>

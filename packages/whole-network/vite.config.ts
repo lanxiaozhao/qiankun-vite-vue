@@ -1,7 +1,7 @@
 import { defineConfig, loadConfigFromFile, mergeConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import packageConfig from './package.json'
-// import qiankun from "vite-plugin-qiankun"
+import qiankun from 'vite-plugin-qiankun'
 import { resolve } from 'path'
 
 const pathResolve = (dir: string): string => {
@@ -15,10 +15,8 @@ export default defineConfig(async ({ command, mode }) => {
     .config
 
   const config = {
-    server: { port: 10002 },
-    plugins: [
-      // qiankun(`${packageConfig.name}`, { useDevMode }),
-    ],
+    server: { port: 5175 },
+    plugins: [qiankun(`${packageConfig.name}`, { useDevMode })],
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),

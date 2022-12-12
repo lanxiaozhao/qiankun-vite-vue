@@ -5,7 +5,7 @@ import enLocale from 'element-plus/lib/locale/lang/en'
 import zhCnLocale from 'element-plus/lib/locale/lang/zh-cn'
 import { computed, ref } from 'vue'
 
-const localLanguage = ref('')
+export const localLanguage = ref('')
 export const setLang = (lang: string) => {
   localLanguage.value = lang
   localStorage.setItem('user_lang', lang)

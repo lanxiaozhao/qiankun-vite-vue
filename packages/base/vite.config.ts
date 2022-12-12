@@ -14,7 +14,7 @@ export default defineConfig(async ({ command, mode }) => {
   const base = (await loadConfigFromFile({ command, mode }, pathResolve('../../vite.config.ts')))!
     .config
   const config = {
-    server: { port: 10002 },
+    server: { port: 5173 },
     plugins: [
       // qiankun(`${packageConfig.name}`, { useDevMode }),
     ],

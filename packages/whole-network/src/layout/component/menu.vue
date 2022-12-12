@@ -1,12 +1,25 @@
 <script setup lang="ts">
-import dashboradRoutes from '@/router/dashboardRoutes'
+// import dashboradRoutes from '@/router/dashboardRoutes'
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 // import QuickSet from '@/views/quickSet/index.vue'
 import { ElMessageBox } from 'element-plus'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
-const menu = dashboradRoutes.children.filter((item) => item.meta.showLink)
+// const menu = dashboradRoutes.children.filter((item) => item.meta.showLink)
+const menu = [
+  {
+    path: '/terminalManage',
+    name: 'terminalManage',
+    meta: {
+      title: t('menu.terminal'),
+      showLink: true,
+      icon: 'icon-overview'
+    },
+    children: [],
+    component: () => import('@/views/terminalManage/index.vue')
+  }
+].filter((item) => item.meta.showLink)
 const router = useRouter()
 const activeRoute = router.currentRoute.value.fullPath
 onMounted(() => {
@@ -27,10 +40,6 @@ onMounted(() => {
       })
   }
 })
-// const quickSetRef = ref(QuickSet)
-// const quickSethow = () => {
-//   quickSetRef.value.isShow = true
-// }
 </script>
 
 <template>
@@ -68,7 +77,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .menu-container {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: rgb(30, 33, 36);
@@ -80,7 +88,6 @@ onMounted(() => {
     color: rgb(207, 207, 207);
   }
   .menu {
-    height: calc(100vh - 56px);
     overflow-y: auto;
     &::-webkit-scrollbar {
       width: 7px;

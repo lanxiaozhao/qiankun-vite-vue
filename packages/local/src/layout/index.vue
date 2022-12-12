@@ -1,37 +1,26 @@
 <script setup lang="ts">
-import Header from './component/header.vue'
 import Menu from './component/menu.vue'
 </script>
 
 <template>
-  <div class="layout">
+  <div class="lo-layout">
     <Menu />
-    <div class="container-wrapper">
-      <Header />
-      <div class="content">
-        <div class="content-wrapper"><router-view></router-view></div>
-      </div>
+    <div class="lo-container-wrapper">
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.layout {
+.lo-layout {
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 56px);
   width: 100vw;
-  .container-wrapper {
-    height: 100vh;
-    overflow-y: hidden;
-    .content {
-      background-color: rgb(245 245 245);
-      height: calc(100vh - 56px);
-      width: calc(100vw - 256px);
-      overflow: auto;
-      &-wrapper {
-        min-width: 1180px;
-      }
-    }
+  .lo-container-wrapper {
+    height: calc(100vh - 56px);
+    flex: 1;
+    background-color: rgb(245 245 245);
+    overflow: auto;
   }
 }
 </style>

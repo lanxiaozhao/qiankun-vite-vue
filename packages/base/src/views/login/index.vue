@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { getLogin } from '@/http/login'
+// import { getLogin } from '@/http/login'
 import type { FormInstance, FormRules } from 'element-plus'
 import LangSelect from '@/components/langSelect.vue'
 // import { cookie } from '@/utils/http'
@@ -21,17 +21,17 @@ const login = async () => {
   if (!formRef.value) return
   await formRef.value.validate((valid, fields) => {
     if (valid) {
-      getLogin({ luci_username: form.name, luci_password: form.password })
-        .then((res) => {
-          if (res) {
-            // todo 获取cookie或者token/userInfo,获取quickSet,并将获取道德信息存储到localStorage
-            console.log(document.cookie)
-            router.push('/')
-          }
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+      // getLogin({ luci_username: form.name, luci_password: form.password })
+      //   .then((res) => {
+      //     if (res) {
+      //       // todo 获取cookie或者token/userInfo,获取quickSet,并将获取道德信息存储到localStorage
+      //       console.log(document.cookie)
+      //       router.push('/')
+      //     }
+      //   })
+      //   .catch((err) => {
+      //     console.log(err)
+      //   })
     } else {
       console.log('error submit!', fields)
     }

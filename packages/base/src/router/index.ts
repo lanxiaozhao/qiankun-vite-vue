@@ -1,9 +1,42 @@
+import { apps } from './../utils/microAppsConfig/microApps'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import routes from './routes'
+
+const Components: IObject<() => Promise<typeof import('*.vue')>> = Object.assign(
+  {},
+  {
+    Layout: (() => import('@/layout/index.vue')) as unknown as () => Promise<typeof import('*.vue')>
+  }
+)
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes: routes as RouteRecordRaw[]
+  routes: [
+    {
+      path: '/',
+      redirect: '/local'
+    },
+    {
+      path: '/local',
+      component: Components.Layout
+    },
+    {
+      path: '/local/:morePath',
+      component: Components.Layout
+    },
+    {
+      path: '/whole',
+      component: Components.Layout
+    },
+    {
+      path: '/whole/:morePath',
+      component: Components.Layout
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/login/index.vue')
+    }
+  ] as RouteRecordRaw[]
 })
 
 router.beforeEach((to, _from, next) => {

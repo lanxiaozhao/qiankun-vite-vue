@@ -3,25 +3,8 @@ import en from './lang/en'
 import zhCN from './lang/zh-cn'
 import enLocale from 'element-plus/lib/locale/lang/en'
 import zhCnLocale from 'element-plus/lib/locale/lang/zh-cn'
-import { computed, ref } from 'vue'
-
-const localLanguage = ref('')
-export const setLang = (lang: string) => {
-  localLanguage.value = lang
-  localStorage.setItem('user_lang', lang)
-}
-
-export const getLang = computed(() => {
-  localLanguage.value = localStorage.getItem('user_lang')
-  if (!localLanguage.value) {
-    const userLang = (navigator.language || navigator.browserLanguage).toLowerCase()
-    setLang(userLang)
-    return userLang
-  } else {
-    return localLanguage.value
-  }
-})
-
+import { ref } from 'vue'
+export const localLang = ref('zh-cn')
 const messages = {
   [zhCnLocale.name]: {
     ...zhCnLocale,
@@ -34,7 +17,7 @@ const messages = {
 }
 
 export const i18n: I18n = createI18n({
-  locale: getLang.value,
+  locale: localLang.value,
   messages,
   legacy: false,
   globalInjection: true,

@@ -1,7 +1,7 @@
 import { defineConfig, loadConfigFromFile, mergeConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import packageConfig from './package.json'
-// import qiankun from "vite-plugin-qiankun"
+import qiankun from 'vite-plugin-qiankun'
 import { resolve } from 'path'
 
 const pathResolve = (dir: string): string => {
@@ -14,16 +14,20 @@ export default defineConfig(async ({ command, mode }) => {
   const base = (await loadConfigFromFile({ command, mode }, pathResolve('../../vite.config.ts')))!
     .config
   const config = {
-    server: { port: 10002 },
-    plugins: [
-      // qiankun(`${packageConfig.name}`, { useDevMode }),
-    ],
+    server: { port: 5174, origin: '//localhost:5174' },
+    plugins: [qiankun(`${packageConfig.name}`, { useDevMode })],
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
         'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js'
       }
     }
+    // output: {
+    //   // 把子应用打包成 umd 库格式
+    //   library: `${packageConfig.name}-[name]`,
+    //   libraryTarget: 'umd',
+    //   jsonpFunction: `webpackJsonp_${packageConfig.name}`
+    // }
   }
   return mergeConfig(base, config)
 })

@@ -3,6 +3,7 @@ import { ElMessageBox } from 'element-plus'
 import { useRouter } from 'vue-router'
 import LangSelect from '@/components/langSelect.vue'
 import { useI18n } from 'vue-i18n'
+
 const { t } = useI18n()
 const router = useRouter()
 const logout = () => {
@@ -18,11 +19,21 @@ const logout = () => {
     })
     .catch(() => {})
 }
+const goLocal = () => {
+  console.log('local')
+  router.push('/local')
+}
+const goWholeNetwork = () => {
+  console.log('whole')
+  router.push('/whole')
+}
 </script>
 
 <template>
   <div class="header">
     <span>{{ $t('productModel') }}</span>
+    <el-button @click="goWholeNetwork">整网配置</el-button>
+    <el-button @click="goLocal">本机配置</el-button>
     <div class="header-r">
       <lang-select class="select"></lang-select>
       <i class="iconfont icon-exit" @click="logout"></i>
@@ -39,6 +50,7 @@ const logout = () => {
   padding: 0 24px;
   box-shadow: 0 0 8px 0 rgb(0 0 0 / 8%);
   z-index: 999;
+  width: 100%;
   &-r {
     display: flex;
     align-items: center;
